@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QM WEB API&#x5E2E;&#x52A9;&#x6587;&#x6863;</title>
+    <link rel="stylesheet" href="/api/css/github-markdown.min.css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.10.0/styles/github.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+    <style>
+    .markdown-body {
+		box-sizing: border-box;
+		min-width: 200px;
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 45px;
+	}
+    </style>
+</head>
+<body>
+    <article class="markdown-body"><h1 id="qm-web-api-">QM WEB API &#x5E2E;&#x52A9;&#x6587;&#x6863;</h1>
+<h2 id="smheader-">SMHeader &#x516C;&#x5171;&#x5934;</h2>
+<pre><code><span class="hljs-comment">// &#x6240;&#x6709;&#x7ED3;&#x6784;&#x7684;&#x5171;&#x540C;&#x6570;&#x636E;&#x90E8;&#x5206;</span>
+<span class="hljs-class"><span class="hljs-keyword">message</span> <span class="hljs-title">SMHeader</span> </span>{ 
+    <span class="hljs-keyword">required</span> <span class="hljs-built_in">uint64</span>  from      = <span class="hljs-number">1</span>; <span class="hljs-comment">// &#x53D1;&#x8D77;&#x65B9;&#x7684;user id&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x8981;&#x6821;&#x9A8C;</span>
+    <span class="hljs-keyword">optional</span> <span class="hljs-built_in">uint64</span>  sourceNo  = <span class="hljs-number">2</span>; <span class="hljs-comment">// &#x53D1;&#x8D77;&#x65B9;&#x586B;&#x5165;&#x7684;&#x5E8F;&#x5217;&#x53F7;</span>
+    <span class="hljs-keyword">optional</span> <span class="hljs-built_in">uint64</span>  serialNo  = <span class="hljs-number">3</span>; <span class="hljs-comment">// &#x670D;&#x52A1;&#x5668;&#x586B;&#x5165;&#x7684;&#x5E8F;&#x5217;&#x53F7;</span>
+    <span class="hljs-keyword">optional</span> <span class="hljs-built_in">uint32</span>  errorCode = <span class="hljs-number">4</span>; <span class="hljs-comment">// &#x9519;&#x8BEF;&#x7801;</span>
+}
+</code></pre><h2 id="bytes-">bytes &#x7C7B;&#x578B;</h2>
+<p>&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x548C;&#x5E94;&#x7B54;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x5FC5;&#x987B;&#x662F;BASE64&#x540E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;</p>
+<h2 id="msg_type-">MSG_TYPE &#x6D88;&#x606F;&#x7C7B;&#x578B;</h2>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">MSG_TYPE</span> </span>{                  <span class="hljs-comment">// &#x6D88;&#x606F;&#x7C7B;&#x578B;</span>
+    MSG_TYPE_CHAT             = <span class="hljs-number">1</span>; <span class="hljs-comment">// &#x666E;&#x901A;&#x5355;&#x4EBA;&#x804A;&#x5929;</span>
+    MSG_TYPE_GROUP_NORMAL     = <span class="hljs-number">2</span>; <span class="hljs-comment">// &#x7FA4;&#x804A;</span>
+    MSG_TYPE_GROUP_BROADCAST  = <span class="hljs-number">3</span>; <span class="hljs-comment">// &#x7FA4;&#x53D1;</span>
+    MSG_TYPE_GROUP_SPEAKER    = <span class="hljs-number">4</span>; <span class="hljs-comment">// Speaker&#x7FA4;&#x53D1;</span>
+    MSG_TYPE_GROUP_CUSTOMERSERVICE = <span class="hljs-number">5</span>; <span class="hljs-comment">// &#x5BA2;&#x670D;&#x7FA4;</span>
+    MSG_TYPE_BROADCAST      = <span class="hljs-number">6</span>; <span class="hljs-comment">// &#x5E7F;&#x64AD;</span>
+    MSG_TYPE_SHAKE          = <span class="hljs-number">7</span>; <span class="hljs-comment">// &#x6296;&#x52A8;</span>
+}
+</code></pre><h2 id="smres-">SMRes &#x5BA2;&#x6237;&#x7AEF;&#x7C7B;&#x578B;</h2>
+<pre><code><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">SMRes</span> {</span>
+    RES_PC       = <span class="hljs-number">0</span>;
+    RES_ANDROID  = <span class="hljs-number">1</span>;
+    RES_IOS      = <span class="hljs-number">2</span>;
+    RES_WEB      = <span class="hljs-number">3</span>;
+    RES_SERVER  = <span class="hljs-number">4</span>;
+}
+</code></pre></article>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

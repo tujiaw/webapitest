@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QM WEB API</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/api/lib/bootstrap-treeview.min.css" rel="stylesheet">
+  <link href="/api/css/main.css" rel="stylesheet">
+  <!-- API参数表格模板 -->
+  <script id="template-params-table" type="text/template">
+    <table class="table table-bordered table-striped table-condensed">
+      <caption>请求参数</caption>
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>名称</th>
+          <th>必须</th>
+          <th>类型</th>
+          <th>默认值</th>
+          <th>示例值</th>
+          <th>描述</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% paramsList.forEach(function(params) { %>
+          <tr>
+            <td><%= params.order %></td>
+            <td><%= params.name %></td>
+            <td><%= params.modifier %></td>
+            <td><%= params.type %></td>
+            <td><%= params.defval %></td>
+            <td class="autocut"><%= params.eg %></td>
+            <td class="autocut"><%= params.desc %></td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </script>
+  <!-- API参数表格模板 -->
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="/">QM WEB API</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/api/bytesavatar.html" target="_blank">二进制头像测试</a></li>
+          <li><a href="/api/help.html" target="_blank">帮助文档</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="signin-page" class="container">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <form class="form-signin" action="/api/signin" method="post">
+          <h2 class="form-signin-heading">管理员登录</h2>
+          <label for="inputUsername" class="sr-only">用户名</label>
+          <input id="input-username" type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
+          <label for="inputPassword" class="sr-only">密码</label>
+          <input id="input-password" type="password" name="password" class="form-control" placeholder="密码" required>
+          <div class="checkbox">
+            <label><input id="remember-me" type="checkbox" value="remember-me"> 记住我</label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" id="btn-signin">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-page" class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <div id="tree"></div>
+      </div>
+      <div class="col-md-9 col-md-offset-3 main">
+        <div class="page-header">
+          <div class="input-group">
+            <span class="input-group-addon">URL</span>
+            <input id="input-query-url" type="text" class="form-control">
+            <span class="input-group-btn">
+              <button id="button-query" class="btn btn-default" type="button">发送</button>
+            </span>
+          </div>
+          <!-- /input-group -->
+        </div>
+        <div id="params-table"></div>
+        <div class="row">
+          <div class="col-md-5">
+            <div id="params-content">
+              <label>请求内容</label>
+              <textarea name="" id="input-params-content" class="form-control" required="required"></textarea><br>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="page">
+              <label for="">应答结果</label>
+              <pre id="pre-result"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <iframe id="chat-frame" frameborder="0" scrolling="no"></iframe>
+    <div class="right-bottom-panel">
+      <span class="glyphicon glyphicon-user"></span> <a id="side-popup" href="javascript:void(0);">聊天</a>
+    </div>
+  </div>
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/api/lib/bootstrap-treeview.min.js"></script>
+  <script src="/api/lib/ejs.min.js"></script>
+  <script src="/api/js/util.js"></script>
+  <script src="/api/js/cmds.js"></script>
+  <script src="/api/js/websocket.js"></script>
+  <script src="/api/js/main.js"></script>
+</body>
+
+</html>
