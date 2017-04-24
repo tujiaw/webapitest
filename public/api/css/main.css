@@ -83,8 +83,28 @@ body {
   margin-top: 0;
 }
 
-/*json显示样式*/
-pre {position: relative; outline: 1px solid #ccc; padding: 5px; margin: 5px; min-height: 300px;}
+/*应答结果json显示样式*/
+pre {
+  position: relative; 
+  padding: 5px; 
+  margin: 5px; 
+  height: 310px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  border-radius: 4px;
+}
+
+pre .copy {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: #666;
+  color: #fff;
+  cursor: Pointer;
+}
+pre .copy:hover {
+  background: #888;
+}
 .string { color: green; }
 .number { color: darkorange; }
 .boolean { color: blue; }
@@ -93,7 +113,7 @@ pre {position: relative; outline: 1px solid #ccc; padding: 5px; margin: 5px; min
 
 /*参数输入框高度*/
 #input-params-content {
-  min-height: 310px;
+  height: 310px;
 }
 
 /*发送按钮宽度*/
@@ -115,9 +135,10 @@ pre {position: relative; outline: 1px solid #ccc; padding: 5px; margin: 5px; min
     margin: 0px;
     padding: 0px;
     width: 400px;
-    height: 480px;
+    height: 500px;
     display: none;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 .right-bottom-panel {
     position: fixed;
@@ -149,3 +170,17 @@ pre {position: relative; outline: 1px solid #ccc; padding: 5px; margin: 5px; min
   -moz-text-overflow: ellipsis;  
   -webkit-text-overflow: ellipsis;  
 }
+
+/* 编辑请求内容 */
+.btn-edit-request {
+  display: none;
+}
+
+#edit-request .modal-body li a {
+  cursor: Default;
+}
+
+#edit-request .input-result {
+  margin-top: 6px;
+}
+/* 编辑请求内容 */

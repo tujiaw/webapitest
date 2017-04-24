@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>QM WEB API</title>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/api/lib/bootstrap-treeview.min.css" rel="stylesheet">
+  <link href="/api/lib/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/api/lib/css/bootstrap-treeview.min.css" rel="stylesheet">
   <link href="/api/css/main.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- API参数表格模板 -->
   <script id="template-params-table" type="text/template">
     <table class="table table-bordered table-striped table-condensed">
@@ -67,7 +68,7 @@
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
-        <form class="form-signin" action="/api/signin" method="post">
+        <form class="form-signin" action="/api/qm/signin" method="post">
           <h2 class="form-signin-heading">管理员登录</h2>
           <label for="inputUsername" class="sr-only">用户名</label>
           <input id="input-username" type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
@@ -102,13 +103,46 @@
         <div class="row">
           <div class="col-md-5">
             <div id="params-content">
-              <label>请求内容</label>
+              <label>请求内容</label> 
+
+              <!--编辑请求内容-->
+              <a href="#" type="button" class="btn btn-edit-request" data-toggle="modal" data-target="#edit-request">编辑</a>
+              <div id="edit-request" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="myModalLabel">编辑消息体 - <a href="/api/help.html#edit_msgbody" target="_blank">帮助</a></h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="input-group">
+                      <input type="text" class="input-content form-control">
+                      <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">添加<span class="caret"></span></button>
+                        <ul class="dropdown-menu pull-right">
+                          <li><a type="text">文本</a></li>
+                          <li><a type="emotion">系统表情</a></li>
+                          <li><a type="image">图片链接</a></li>
+                        </ul>  
+                      </div><!-- /btn-group -->
+                      </div><!-- /input-group -->
+                      <textarea name="" class="input-result form-control" rows="15" required="required"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                      <button type="button" class="btn btn-primary btn-ok">确定</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+              </div>
               <textarea name="" id="input-params-content" class="form-control" required="required"></textarea><br>
+              <!--编辑请求内容-->
+
             </div>
           </div>
           <div class="col-md-7">
-            <div class="page">
-              <label for="">应答结果</label>
+            <label for="">应答结果</label>
+            <div id="result-page">
               <pre id="pre-result"></pre>
             </div>
           </div>
@@ -117,16 +151,19 @@
     </div>
     <iframe id="chat-frame" frameborder="0" scrolling="no"></iframe>
     <div class="right-bottom-panel">
-      <span class="glyphicon glyphicon-user"></span> <a id="side-popup" href="javascript:void(0);">聊天</a>
+      <span class="glyphicon glyphicon-user"></span> <a id="side-popup" href="#">聊天</a>
     </div>
   </div>
-  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/api/lib/bootstrap-treeview.min.js"></script>
-  <script src="/api/lib/ejs.min.js"></script>
+  <script src="/api/lib/js/jquery.min.js"></script>
+  <script src="/api/lib/js/jquery.cookie.min.js"></script>
+  <script src="/api/lib/js/bootstrap.min.js"></script>
+  <script src="/api/lib/js/bootstrap-treeview.min.js"></script>
+  <script src="/api/lib/js/ejs.min.js"></script>
+  <script src="/api/lib/js/md5.min.js"></script>
+  <script src="/api/lib/js/base64.min.js"></script>
   <script src="/api/js/util.js"></script>
   <script src="/api/js/cmds.js"></script>
+  <script src="/api/js/qmmsg.js"></script>
   <script src="/api/js/websocket.js"></script>
   <script src="/api/js/main.js"></script>
 </body>
