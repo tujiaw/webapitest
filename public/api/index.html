@@ -9,7 +9,7 @@
   <link href="/api/lib/css/bootstrap.min.css" rel="stylesheet">
   <link href="/api/lib/css/bootstrap-treeview.min.css" rel="stylesheet">
   <link href="/api/css/main.css" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- API参数表格模板 -->
   <script id="template-params-table" type="text/template">
     <table class="table table-bordered table-striped table-condensed">
@@ -70,9 +70,9 @@
       <div class="col-sm-4">
         <form class="form-signin" action="/api/qm/signin" method="post">
           <h2 class="form-signin-heading">管理员登录</h2>
-          <label for="inputUsername" class="sr-only">用户名</label>
+          <label for="input-username" class="sr-only">用户名</label>
           <input id="input-username" type="text" name="username" class="form-control" placeholder="用户名" required autofocus>
-          <label for="inputPassword" class="sr-only">密码</label>
+          <label for="input-password" class="sr-only">密码</label>
           <input id="input-password" type="password" name="password" class="form-control" placeholder="密码" required>
           <div class="checkbox">
             <label><input id="remember-me" type="checkbox" value="remember-me"> 记住我</label>
@@ -126,7 +126,7 @@
                         </ul>  
                       </div><!-- /btn-group -->
                       </div><!-- /input-group -->
-                      <textarea name="" class="input-result form-control" rows="15" required="required"></textarea>
+                      <textarea name="inputResult" class="input-result form-control" rows="15" required="required"></textarea>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -135,13 +135,13 @@
                   </div><!-- /.modal-content -->
                 </div><!-- /.modal -->
               </div>
-              <textarea name="" id="input-params-content" class="form-control" required="required"></textarea><br>
+              <textarea name="inputParamsContent" id="input-params-content" class="form-control" required="required"></textarea><br>
               <!--编辑请求内容-->
 
             </div>
           </div>
           <div class="col-md-7">
-            <label for="">应答结果</label>
+            <label for="result-page">应答结果</label>
             <div id="result-page">
               <pre id="pre-result"></pre>
             </div>
@@ -149,7 +149,7 @@
         </div>
       </div>
     </div>
-    <iframe id="chat-frame" frameborder="0" scrolling="no"></iframe>
+    <iframe id="chat-frame"></iframe>
     <div class="right-bottom-panel">
       <span class="glyphicon glyphicon-user"></span> <a id="side-popup" href="#">聊天</a>
     </div>

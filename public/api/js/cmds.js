@@ -53,7 +53,7 @@ const cmds = {
       {order: 2, name: 'version', modifier: 'repeated', type: 'uint64', defval: [], eg: [0], desc: '用户版本列表'},
       {order: 3, name: 'reqDetail', modifier: 'required', type: 'bool', defval: false, eg: false, desc: '是否请求详细信息'},
       {order: 4, name: 'ownerId', modifier: 'optional', type: 'uint64', defval: 0, eg: 0, desc: '请求用户ID'},
-      {order: 5, name: 'removeAvatar', modifier: 'optional', type: 'bool', defval: true,eg: true, desc: '移除头像数据'}
+      {order: 5, name: 'removeAvatar', modifier: 'optional', type: 'bool', defval: true,eg: true, desc: '不请求头像数据'}
     ]
   },
   friend: {

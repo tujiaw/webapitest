@@ -139,6 +139,8 @@ pre .copy:hover {
     display: none;
     border-radius: 5px;
     margin-bottom: 20px;
+    border: 0px;
+    overflow: hidden;
 }
 .right-bottom-panel {
     position: fixed;

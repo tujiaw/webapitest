@@ -2,13 +2,7 @@ var express = require('express');
 var md5 = require('blueimp-md5/js/md5');
 var router = express.Router();
 
-/* GET home page. */
-router.post('/qm/:cmd', function(req, res, next) {
-  console.log(req.params.cmd);
-  res.json(JSON.parse(req.body.data));
-});
-
-router.post('/api/qm/login', function(req, res, next) {
+router.post('/qm/login', function(req, res, next) {
   const data = JSON.parse(req.body.data);
   console.log('username:' + data.loginName);
   console.log('password:' + data.password);
@@ -31,6 +25,11 @@ router.post('/api/qm/login', function(req, res, next) {
       }
     })
   }
+});
+
+router.post('/qm/:cmd', function(req, res, next) {
+  console.log(req.params.cmd);
+  res.json(JSON.parse(req.body.data));
 });
 
 router.post('/posts', function(req, res, next) {
